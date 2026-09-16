@@ -25,19 +25,7 @@ Sistema de reconocimiento de señales de tránsito a escala para personas con di
 
 ## Acceder al Sitio Web
 
-El sitio web funciona completamente en el navegador (sin servidor).
-
-### Opción 1: Live Server (VS Code)
-1. Abre la carpeta `web/` en VS Code con la extensión Live Server
-2. Haz clic en **Go Live** en la barra inferior
-
-### Opción 2: Python
-```bash
-cd web
-python -m http.server 8000
-```
-3. Abre `http://localhost:8000` en tu navegador
-4. Carga el modelo: haz clic en **Cargar modelo ONNX** y selecciona `web/models/traffic_sign.onnx`
+Ingrese a los Release y Busque el "Ojo Vial v1" y Ingrese al link del Sitio Web (Descargar .ONNX)
    
 ## Prueba de Cámara en PC
 
