@@ -93,7 +93,3 @@ O abre el archivo directamente en Jupyter Lab / VS Code.
 | Web | onnxruntime-web (WASM) + Web Speech API |
 | Android | ONNX Runtime 1.16 + CameraX 1.3 |
 | Entrenamiento | PyTorch + CUDA (RTX 4060) |
-
-## Licencia
-
-MIT License — ver [LICENSE](LICENSE)
