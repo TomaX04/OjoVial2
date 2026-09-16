@@ -169,6 +169,7 @@ const I18N = {
 
         bindEvents();
         initTTS();
+        autoLoadModel();
     }
 
     function bindEvents() {
@@ -271,6 +272,23 @@ const I18N = {
     function setModelStatus(state, text) {
         els.modelStatus.className = `status status--${state}`;
         els.modelStatus.querySelector('.status__text').textContent = text;
+    }
+
+    async function autoLoadModel() {
+        const dict = I18N[currentLang] || I18N['en-US'];
+        setModelStatus('loading', dict.loading_model || 'Loading model...');
+
+        try {
+            const response = await fetch('models/traffic_sign.onnx');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const buffer = await response.arrayBuffer();
+            await detector.loadModel(buffer);
+            setModelStatus('ready', 'traffic_sign.onnx');
+            showToast('Model loaded successfully', 'success');
+        } catch (err) {
+            const dict = I18N[currentLang] || I18N['en-US'];
+            setModelStatus('error', `${dict.load_error} ${err.message}`);
+        }
     }
 
     let cameraEnumerated = false;
